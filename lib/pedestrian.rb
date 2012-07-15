@@ -4,12 +4,9 @@ class Pedestrian < Unit
     [:normal, :canberobbed, :gettingrobbed]
   end
   
-  def current_state
-    :normal
-  end
-  
   def update_movement(dt)
-    # Invert direction if outside of field and put inside field
+    # TODO: remove hard-coded magic numbers
+    # Invert direction if outside of field and put inside field 
     if @pos.x > 776
       @pos.x = 776
       @vel.x = - @vel.x
