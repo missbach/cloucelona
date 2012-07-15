@@ -8,3 +8,9 @@ class Object
     super rescue nil
   end
 end
+
+class Numeric
+  def sqrt
+    Math.sqrt self
+  end
+end
