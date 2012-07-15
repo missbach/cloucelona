@@ -9,7 +9,7 @@ authors/licenses
 *.rb
 */*.rb
 any other code
-  Author: Johannes Missback <http://github.com/johannes-missbach/>
+  Author: Johannes Missbach <http://github.com/johannes-missbach/>
   License: LGPLv2.1+
 
 data/background.png
