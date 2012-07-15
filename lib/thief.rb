@@ -3,7 +3,7 @@ class Thief < Unit
   include KeyboardControlled
   
   def potential_victims
-    Game.inst.units.select { |unit| unit != self && position.distance_to(unit.position) < 96 }
+    Game.inst.units.select { |unit| unit != self && position.distance_to(unit.position) < THIEF_RADIUS }
   end
   
   def update(dt)

@@ -1,5 +1,8 @@
 class Unit
   
+  UNIT_RADIUS  = 24
+  THIEF_RADIUS = 96 
+  
   include Sprites::Sprite
   include EventHandler::HasEventHandler
   
@@ -68,8 +71,8 @@ class Unit
     @max_speed = 500.0
     @max_acceleration = 1200.0
     @slowdown = 800.0
-    
-    @pos, @vel, @acc = Vector[rand(size.width / 2 .. Game::SCREEN_SIZE.width - size.width / 2), rand(size.height / 2 .. Game::SCREEN_SIZE.height - size.height / 2)], Vector[rand(-100..100), rand(-100..100)], Vector.new
+    @pos, @vel, @acc = Vector[rand(UNIT_RADIUS .. Game::SCREEN_SIZE.width - UNIT_RADIUS), rand(UNIT_RADIUS .. Game::SCREEN_SIZE.height - UNIT_RADIUS)],
+                       Vector[rand(-100..100), rand(-100..100)], Vector.new
   end
  
   ## Muahahah!: copy and pasted from http://rubygame.org/wiki/Gradual_movement
