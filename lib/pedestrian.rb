@@ -22,5 +22,13 @@ class Pedestrian < Unit
       @vel.y = - @vel.y
     end
   end
+  
+  attr_accessor :next_state
+  
+  def update(dt)
+    self.current_state = self.next_state
+    self.next_state = :normal
+    super
+  end
 
 end
