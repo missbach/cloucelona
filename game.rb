@@ -41,6 +41,7 @@ class Game
   def setup_units
     @units = Group.new
     40.times { @units << Pedestrian.new }
+    @units << Thief.new
     @units.each { |unit| make_magic_hooks_for unit, { YesTrigger.new() => :handle } if unit.requests_updates? }
   end
   
