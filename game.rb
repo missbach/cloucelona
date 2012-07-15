@@ -16,10 +16,15 @@ include Rubygame::Sprites
  
 class Game
   
+  SCREEN_SIZE = [800, 600].context_tap do
+    define_singleton_method(:width) { first }
+    define_singleton_method(:height) { last }
+  end
+  
   include EventHandler::HasEventHandler
   
   def initialize
-    @screen = Screen.new [800,600], 0, [HWSURFACE, DOUBLEBUF]
+    @screen = Screen.new SCREEN_SIZE, 0, [HWSURFACE, DOUBLEBUF]
     @screen.title = "Cloucelona (&Paste)"
  
     @queue = EventQueue.new.context_tap do

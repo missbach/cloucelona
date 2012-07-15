@@ -3,4 +3,8 @@ class Object
     self.instance_eval &block
     self
   end
+  
+  def try(symbol)
+    super rescue nil
+  end
 end

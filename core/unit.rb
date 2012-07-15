@@ -24,8 +24,13 @@ class Unit
     update_movement(dt)
     @vel.update           update_vel_axis(@vel.x, @acc.x, dt), update_vel_axis(@vel.y, @acc.y, dt)
     @pos.update_relative  *@vel.to_a.map { |z| z * dt }
+    @pos.ensure_inside    *Game::SCREEN_SIZE
     
     apply_state
+  end
+  
+  def size
+    @size ||= @states.first[1][1]
   end
   
   protected
@@ -58,7 +63,8 @@ class Unit
     @max_speed = 500.0
     @max_acceleration = 1200.0
     @slowdown = 800.0
-    @pos, @vel, @acc = Vector[rand(24..776), rand(24..576)], Vector[rand(-100..100), rand(-100..100)], Vector.new
+    
+    @pos, @vel, @acc = Vector[rand(size.width / 2 .. Game::SCREEN_SIZE.width - size.width / 2), rand(size.height / 2 .. Game::SCREEN_SIZE.height - size.height / 2)], Vector[rand(-100..100), rand(-100..100)], Vector.new
   end
  
   ## Muahahah!: copy and pasted from http://rubygame.org/wiki/Gradual_movement
