@@ -9,13 +9,12 @@ authors/licenses
 *.rb
 */*.rb
 any other code
-  Author: Johannes Missback <http://github.com/johannes-missbach/>
+  Author: Johannes Missbach <http://github.com/johannes-missbach/>
   License: LGPLv2.1+
 
 data/background.png
 data/pedestrian-gettingrobbed.png
 data/player-area.png
-data/player-areaWithSprite.png
 data/cloucelona-graphics.svg
 data/pedestrian-canberobbed.png
 data/pedestrian-normal.png
@@ -23,6 +22,9 @@ data/pedestrian-normal.png
   License: CC-BYv3+
 
 data/718smiley.svg
+data/thief-normal.png
+data/thief-normal.svg
+data/player-areaWithSprite.png
 data/player-thief.png
   Author: East718 & Howcheng
   License: CC-BY-SAv3
