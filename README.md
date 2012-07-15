@@ -24,6 +24,8 @@ data/pedestrian-normal.png
 data/718smiley.svg
 data/thief-normal.png
 data/thief-normal.svg
+data/thief-stealing.png
+data/thief-stealing.svg
 data/player-areaWithSprite.png
 data/player-thief.png
   Author: East718 & Howcheng
