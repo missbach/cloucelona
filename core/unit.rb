@@ -44,6 +44,14 @@ class Unit
     false
   end
   
+  def states
+    [:normal]
+  end
+  
+  def current_state
+    :normal
+  end
+  
   private
   
   def setup_maths
