@@ -8,8 +8,9 @@ authors/licenses
 
 *.rb
 */*.rb
+any other code
   Author: Johannes Missback <http://github.com/johannes-missbach/>
-  License: unknown
+  License: LGPLv2.1+
 
 data/background.png
 data/pedestrian-gettingrobbed.png
@@ -28,6 +29,7 @@ data/player-thief.png
   Source: http://commons.wikimedia.org/wiki/File:718smiley.svg
   Note: This is probably not the actual copyright holder. See "Origin of Awesome" <http://driph.com/words/2008/04/origin-of-awesome/>.
 
+LGPLv2.1+ means The GNU Lesser General Public License version 2.1 <http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html> or any later version of that license.
 
 CC-BYv3+ means Creative Commons Attribution 3.0 Unported <http://creativecommons.org/licenses/by/3.0/> or any later version of that license.
 
