@@ -10,6 +10,7 @@ include Rubygame
 include Rubygame::Events
 include Rubygame::EventActions
 include Rubygame::EventTriggers
+include Rubygame::Sprites
 
 Dir["lib/*.rb"].each { |file| require_relative file }
  
@@ -22,7 +23,7 @@ class Game
     @screen.title = "Cloucelona (&Paste)"
  
     @queue = EventQueue.new.context_tap do
-      #enable_new_style_events
+      enable_new_style_events
       ignore = [MouseMoved]
     end
     
@@ -32,7 +33,15 @@ class Game
       enable_tick_events
     end
     
-    make_magic_hooks(QuitEvent => :quit)
+    make_magic_hooks QuitRequested => :quit
+    
+    setup_units
+  end
+  
+  def setup_units
+    @units = Group.new
+    
+    @units.each { |unit| make_magic_hooks_for unit, { YesTrigger.new() => :handle } if unit.requests_updates? }
   end
   
   def quit
@@ -45,11 +54,12 @@ class Game
   end
  
   def update
-    @queue.fetch_sdl_events
-    (@queue << @clock.tick).each { |event| handle event }
+    (@queue.context_tap { fetch_sdl_events } << @clock.tick).each { |event| handle event }
   end
  
   def draw
+    @screen.fill :black
+    @units.draw @screen
     @screen.flip
   end
   
