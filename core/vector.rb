@@ -25,6 +25,10 @@ class Vector
     self.y = ensure_inside_axis(self.y, y.try(:first) || 0, y.try(:last) || y)
   end
   
+  def distance_to(other)
+    ((self.x - other.x) ** 2 + (self.y - other.y) ** 2).sqrt
+  end
+  
   def self.[](*args)
     new *args
   end

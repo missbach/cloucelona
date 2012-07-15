@@ -16,9 +16,20 @@ include Rubygame::Sprites
  
 class Game
   
+  @@instance = nil
+  
   SCREEN_SIZE = [800, 600].context_tap do
     define_singleton_method(:width) { first }
     define_singleton_method(:height) { last }
+  end
+  
+  def self.inst
+    @@instance
+  end
+  
+  def self.new
+    raise "multiple game instances not allowed" if @@instance
+    @@instance = super
   end
   
   include EventHandler::HasEventHandler
@@ -68,6 +79,8 @@ class Game
     @units.draw @screen
     @screen.flip
   end
+  
+  attr_reader :units
   
   self
 end.new.run

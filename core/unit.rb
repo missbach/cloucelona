@@ -33,11 +33,15 @@ class Unit
     @size ||= @states.first[1][1]
   end
   
+  def position
+    @pos
+  end
+  
   protected
   
   def apply_state(state = nil)
     state ||= current_state
-    @image, @rect = @states[state] if @prev_state != state
+    @image, @rect = (@states[state] || @states.first) if @prev_state != state
     @rect.center = @pos.to_a
     @prev_state = state
   end
@@ -54,8 +58,9 @@ class Unit
   end
   
   def current_state
-    :normal
+    @current_state ||= states.first
   end
+  attr_writer :current_state
   
   private
   
