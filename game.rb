@@ -12,7 +12,7 @@ include Rubygame::EventActions
 include Rubygame::EventTriggers
 include Rubygame::Sprites
 
-Dir["lib/*.rb"].each { |file| require_relative file }
+%w(core lib).each { |folder| Dir["#{folder}/*.rb"].each { |file| require_relative file } }
  
 class Game
   
