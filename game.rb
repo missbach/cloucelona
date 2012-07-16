@@ -49,7 +49,7 @@ class Game
       enable_tick_events
     end
     
-    make_magic_hooks QuitRequested => :quit
+    make_magic_hooks QuitRequested => :quit, KeyPressed => lambda { |obj, evt| quit if evt.key == :escape }
     
     setup_units
   end
