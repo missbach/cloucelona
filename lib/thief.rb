@@ -9,11 +9,11 @@ class Thief < Unit
   def update(dt)
     next_state = @keys.include?(:space) ? :robbing : :normal
     potential_victims.tap do |victims|
-      @victims = next_state == :robbing && current_state != :robbing ? victims : @victims & victims
+      victims = @current_victims & victims unless @current_victims.nil?
       victim_state = next_state == :robbing ? :gettingrobbed : :canberobbed
       victims.each { |victim| victim.next_state = victim_state }
+      @current_victims = (current_state = next_state) == :normal ? nil : victims
     end
-    current_state = next_state
     super
   end
   
